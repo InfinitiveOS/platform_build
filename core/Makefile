@@ -982,7 +982,7 @@ INTERNAL_SYSTEMIMAGE_FILES := $(filter $(TARGET_OUT)/%, \
 
 systemimage-squisher: $(INTERNAL_SYSTEMIMAGE_FILES)
 	@echo -e "Optimizing PNGs to Shrink ROM Size!"
-	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/aosp/utils/squisher
+	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/io/utils/squisher
 
 .PHONY: systemimage-squisher
 
@@ -1611,8 +1611,8 @@ else
     OTA_FROM_TARGET_SCRIPT := $(TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT)
 endif
 
-AOSP_VENDOR_EXISTS = $(strip $(wildcard $(TOP)/vendor/aosp/common.mk))
-ifneq ($(AOSP_VENDOR_EXISTS),)
+IO_VENDOR_EXISTS = $(strip $(wildcard $(TOP)/vendor/io/configs/common.mk))
+ifneq ($(IO_VENDOR_EXISTS),)
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := true
 else
     $(INTERNAL_OTA_PACKAGE_TARGET): backuptool := false
