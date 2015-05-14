@@ -606,6 +606,25 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Unmount("/data")
   script.AppendExtra("endif;")
 
+  builddate = time.strftime("%x");
+  if not OPTIONS.override_prop:
+    product = GetBuildProp("ro.build.product", OPTIONS.info_dict);
+  else:
+    device = GetBuildProp("ro.product.device", OPTIONS.info_dict);
+    model = GetBuildProp("ro.product.model", OPTIONS.info_dict);
+    product = "%s (%s)"%(model, device);
+  b = "Build date: %s"%(builddate);
+  b2 = b.center(32, ' ');
+  d = "Device: %s"%(product);
+  d2 = d.center(32, ' ');
+
+  script.Print("**********************************");
+  script.Print("*       INFINITIVE-OS            *");
+  script.Print("*                                *");
+  script.Print("*" + b2 + "*");
+  script.Print("*" + d2 + "*");
+  script.Print("**********************************");
+
   if "selinux_fc" in OPTIONS.info_dict:
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
