@@ -65,8 +65,8 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^infinitive_") ; then
-       IO_BUILD=$(echo -n $1 | sed -e 's/^infinitive_//g')
+    if (echo -n $1 | grep -q -e "^io_") ; then
+       IO_BUILD=$(echo -n $1 | sed -e 's/^io_//g')
     else
        IO_BUILD=
     fi
@@ -540,7 +540,7 @@ function breakfast()
             lunch $target
         else
             # This is probably just the Infinitive model name
-            lunch infinitive_$target-userdebug
+            lunch io_$target-userdebug
         fi
     fi
     return $?
