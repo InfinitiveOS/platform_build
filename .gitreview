@@ -1,0 +1,6 @@
+[gerrit]
+host=gerrit.aogp-devs.com
+port=29418
+project=build.git
+defaultbranch=io-1.0
+
