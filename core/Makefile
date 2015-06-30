@@ -1664,7 +1664,7 @@ bacon: otapackage
 	@echo -e ${CL_CYN}"Zip: "${CL_MAG} $(IO_TARGET_PACKAGE)${CL_RST}
 	@echo -e ${CL_CYN}"MD5: "${CL_MAG}" `cat $(IO_TARGET_PACKAGE).md5sum | cut -d ' ' -f 1`"${CL_RST}
 	@echo -e ${CL_CYN}"Size:"${CL_MAG}" `ls -lah $(IO_TARGET_PACKAGE) | cut -d ' ' -f 5`"${CL_RST}
-	@echo -e ${CL_CYN}"=============================================="${CL_RST}
+	@echo -e ${CL_CYN}"==================================================="${CL_RST}
 ifeq ($(USE_PREBUILT_CHROMIUM),1)
 ifneq ($(PRODUCT_PREBUILT_WEBVIEWCHROMIUM),yes)
 	@echo "Running Chromium prebuilt setup script..."
